@@ -91,5 +91,28 @@ Let's change that
 update nigeria
 set Country= replace(country,'Nigéria','Nigeria') 
 ```
-<img width="36" alt="e" src="https://user-images.githubusercontent.com/99955484/188766056-4981a295-c339-42ae-b301-9c61471769f1.png">
+<img width="36" alt="e" src="https://user-images.githubusercontent.com/99955484/188766056-4981a295-c339-42ae-b301-9c61471769f1.p
+
+Column **state** has 38 unique state out of which one was documented in French (*non-specifié*)..The below image explains more
+**Picture of 38 dictinct state**
+
+So let's change the French term **non-specifié** in the column state to it's English term, **Unknown**.
+```
+ Code for replacing non-specifié to Unknown
+```
+
+#### 5. Replacing nulls with **0**
+First let's check for nulls in each column
+```Code that check for nulls
+```
+Let's Replace them with Zero.
+```Code that replaces
+```
+Table view after replacement
+***Image***
+
+#### Conclusion:
+The Covid-19 dataset which consists of more than 20,000 records has been cleaned successfully using SQL...
+
+Thanks✴️
 
