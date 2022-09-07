@@ -91,15 +91,21 @@ Let's change that
 update nigeria
 set Country= replace(country,'Nigéria','Nigeria') 
 ```
-<img width="36" alt="e" src="https://user-images.githubusercontent.com/99955484/188766056-4981a295-c339-42ae-b301-9c61471769f1.p
+<img width="36" alt="e" src="https://user-images.githubusercontent.com/99955484/188862214-d674f2b3-4954-4647-89ef-5f9b8b326e34.png">
+
+
 
 Column **state** has 38 unique state out of which one was documented in French (*non-specifié*)..The below image explains more
-**Picture of 38 dictinct state**
+ <img width="146" alt="states" src="https://user-images.githubusercontent.com/99955484/188862528-90e56d85-c473-4108-9e4b-bf8855b44a3a.png">
+
 
 So let's change the French term **non-specifié** in the column state to it's English term, **Unknown**.
+```---Changing state Non spécifié to unknown
+update nigeria
+set States=replace(States,'Non spécifié','Unknown') where states='Non spécifié'
 ```
- Code for replacing non-specifié to Unknown
-```
+*Output*
+<img width="285" alt="changed state" src="https://user-images.githubusercontent.com/99955484/188862846-ae8ec744-642d-4575-a332-60bb6a21a706.png">
 
 #### 5. Replacing nulls with **0**
 First let's check for nulls in each column
