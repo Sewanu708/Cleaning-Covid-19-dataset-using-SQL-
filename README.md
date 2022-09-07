@@ -111,7 +111,7 @@ Let's Replace them with Zero.
 Table view after replacement
 ***Image***
 
-#### Conclusion:
+## Conclusion:
 The Covid-19 dataset which consists of more than 20,000 records has been cleaned successfully using SQL...
 
 Thanks✴️
