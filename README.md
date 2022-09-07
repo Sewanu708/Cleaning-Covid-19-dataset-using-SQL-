@@ -82,4 +82,14 @@ drop column [date]
 ```
 <img width="152" alt="a" src="https://user-images.githubusercontent.com/99955484/188764884-8ca8aeca-4412-4330-a3e1-fc95c7bee5b9.png">
 
-Instead of just updating the column, i deleted it because te **update** didn't seem to work as it was still returning the timestamp alongside the date
+Instead of just updating the column, I deleted it because the **update** method didn't seem to work as it was still returning the timestamp alongside the date
+
+#### 4. Replacing the content of some column with their English terms
+In the country column, Nigeria  wasn't spelt correctly. It was written as **Nigéria** instead  of **Nigeria**.
+Let's change that
+```
+update nigeria
+set Country= replace(country,'Nigéria','Nigeria') 
+```
+<img width="36" alt="e" src="https://user-images.githubusercontent.com/99955484/188766056-4981a295-c339-42ae-b301-9c61471769f1.png">
+
