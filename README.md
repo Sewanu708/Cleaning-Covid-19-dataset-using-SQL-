@@ -40,7 +40,7 @@ drop column Source,ISO_3,ID_PAYS
 #### 2.Changing the column headers 
 The main reason some of the column headers are being changed  is because they were computed in French.
 I used stored procedures to change them although  there are other ways of doing it
-```
+```SQL
 --Renaming the column header
 --PAYS =Country
 sp_rename 'nigeria.PAYS','Country','Column' 
@@ -67,7 +67,7 @@ sp_rename 'nigeria.CONTAMINES_GENRE_NON_SPECIFIE','Infected individuals whose Ge
 
 #### 3. Removing timestamp from date
 The date column initailly does not have a timestamp but during the process of importing the table into the **Covid-19** database, SQL Server changed the datatype of the column to datetime.
-```
+```SQL
 --Removing the timestamp from dates
 --update nigeria 
 --set [DATE] = cast([DATE] AS date) from nigeria
@@ -87,7 +87,7 @@ Instead of just updating the column, I deleted it because the **update** method 
 #### 4. Replacing the content of some column with their English terms
 In the country column, Nigeria  wasn't spelt correctly. It was written as **Nigéria** instead  of **Nigeria**.
 Let's change that
-```
+```SQL
 update nigeria
 set Country= replace(country,'Nigéria','Nigeria') 
 ```
@@ -100,7 +100,8 @@ Column **state** has 38 unique state out of which one was documented in French (
 
 
 So let's change the French term **non-specifié** in the column state to it's English term, **Unknown**.
-```---Changing state Non spécifié to unknown
+```SQL
+---Changing state Non spécifié to unknown
 update nigeria
 set States=replace(States,'Non spécifié','Unknown') where states='Non spécifié'
 ```
@@ -109,16 +110,52 @@ set States=replace(States,'Non spécifié','Unknown') where states='Non spécifi
 
 #### 5. Replacing nulls with **0**
 First let's check for nulls in each column
-```Code that check for nulls
+```SQL
+select * from nigeria 
+where country is null
+select * from nigeria 
+where States is null
+select * from nigeria 
+where State_ID is null
+select * from nigeria
+where Confirmed_Cases is null
+select * from nigeria 
+where Deaths is null
+select * from nigeria 
+where Recovery is null
+select * from nigeria 
+where [Infected Females] is null
+select * from nigeria 
+where [Infected Males] is null
+select * from nigeria 
+where [Infected individuals whose Gender is unknown] is null
 ```
+*Output*
+
 Let's Replace them with Zero.
-```Code that replaces
+```SQL
+
+update nigeria
+set Confirmed_Cases=isnull(Confirmed_Cases,0) from nigeria  where Confirmed_Cases is null
+update nigeria
+set Deaths=isnull(Deaths,0) from nigeria  where Deaths is null
+update nigeria
+set Recovery=isnull(Recovery,0) from nigeria  where Recovery is null
+update nigeria
+set [Infected males]=isnull([Infected Males],0) from nigeria  where [Infected Males] is null
+update nigeria
+set [Infected females]=isnull([Infected females],0) from nigeria  where [Infected females] is null
+update nigeria
+set [Infected individuals whose Gender is unknown]=isnull([Infected individuals whose Gender is unknown],0) from nigeria  where [Infected individuals whose Gender is unknown] is null
 ```
-Table view after replacement
-***Image***
+*Executing the previous query again, shows that there are no more nulls.*
+
+<img width="765" alt="Annotation 2022-09-12 035421" src="https://user-images.githubusercontent.com/99955484/189565755-87a92e7e-3473-4e1b-ae4e-0619040d53c1.png">
+
+
 
 ## Conclusion:
 The Covid-19 dataset which consists of more than 20,000 records has been cleaned successfully using SQL...
 
-Thanks✴️
+Thanks for reading ✴
 
