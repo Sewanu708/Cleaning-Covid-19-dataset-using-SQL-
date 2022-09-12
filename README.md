@@ -21,9 +21,8 @@ The relational database management software used in this project is SQL Server M
 
 ## Cleaning Steps
 #### 1. Deleting unwanted columns
-```
+```SQL
 --Dropping column Source,ISO_3,ID_PAYS(country_id)
-
 alter table nigeria
 drop column Source,ISO_3,ID_PAYS
 ```
@@ -35,6 +34,7 @@ drop column Source,ISO_3,ID_PAYS
 - Column ID_PAYS(meaning country id) is also of no relevance since the dataset consist of only one country 
 
 *new table view after deleting unwanted columns*
+
 <img width="755" alt="after dropping columns" src="https://user-images.githubusercontent.com/99955484/188761801-29f740ea-4c9b-4728-be5c-34ceee5ea75c.png">
 
 #### 2.Changing the column headers 
@@ -63,6 +63,7 @@ sp_rename 'nigeria.CONTAMINES_GENRE_NON_SPECIFIE','Infected individuals whose Ge
 ```
 
 *new table view after changing spme column header*
+
 <img width="774" alt="after changing column header" src="https://user-images.githubusercontent.com/99955484/188763562-b395d87a-a643-413a-a308-9b1971768e89.png">
 
 #### 3. Removing timestamp from date
@@ -96,7 +97,8 @@ set Country= replace(country,'Nigéria','Nigeria')
 
 
 Column **state** has 38 unique state out of which one was documented in French (*non-specifié*)..The below image explains more
- <img width="146" alt="states" src="https://user-images.githubusercontent.com/99955484/188862528-90e56d85-c473-4108-9e4b-bf8855b44a3a.png">
+
+<img width="146" alt="states" src="https://user-images.githubusercontent.com/99955484/188862528-90e56d85-c473-4108-9e4b-bf8855b44a3a.png">
 
 
 So let's change the French term **non-specifié** in the column state to it's English term, **Unknown**.
