@@ -101,7 +101,7 @@ Column **state** has 38 unique state out of which one was documented in French (
 <img width="146" alt="states" src="https://user-images.githubusercontent.com/99955484/188862528-90e56d85-c473-4108-9e4b-bf8855b44a3a.png">
 
 
-So let's change the French term **non-specifié** in the column state to it's English term, **Unknown**.
+So let's change the French term **Non spécifié** in the column state to it's English term, **Unknown**.
 ```SQL
 ---Changing state Non spécifié to unknown
 update nigeria
@@ -158,6 +158,10 @@ set [Infected individuals whose Gender is unknown]=isnull([Infected individuals 
 
 ## Conclusion:
 The Covid-19 dataset which consists of more than 20,000 records has been cleaned successfully using SQL...
+*Here is the look of our table after cleaning*
+
+<img width="707" alt="Annotation 2022-09-12 040011" src="https://user-images.githubusercontent.com/99955484/189566232-a9008df3-815b-4932-98d7-33649ac87618.png">
+
 
 Thanks for reading ✴
 
